@@ -1,11 +1,20 @@
 <?php 
     include __DIR__. './function.php';
+
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+
     session_start();
     $_SESSION['numberCharacters'] = $_GET['numberCharacters'];
 
-    if(empty($_SESSION['numberCharacters'])) {
-        header('Location: ./index.php?error=EVITIAMO DI FARE GLI SGARGIULLI E DIAMO UN PARAMETRO');
+    if(empty($_SESSION['numberCharacters']) || $_GET['numberCharacters'] > 92) {
+        header('Location: ./index.php?error=EVITIAMO DI FARE GLI SGARGIULLI E DIAMO UN PARAMETRO VALIDO');
     }
+    else {
+        $string = randomPassword($_GET['numberCharacters'], $_GET['isRepeating']);
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +33,7 @@
                 <div class="col">
                     <div class="card text-center">
                         <h1>La tua Password Super Sicura:</h1>
-                        <h3 class="mb-0 border-2 rounded-3 p-3 bg-primary text-white"><?php echo randomPassword($_GET['numberCharacters']) ?></h3>
+                        <h3 class="mb-0 border-2 rounded-3 p-3 bg-primary text-white"><?php echo $string ?></h3>
                     </div>
                 </div>
             </div>

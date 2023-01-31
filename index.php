@@ -1,5 +1,10 @@
 <?php
     include __DIR__. './function.php';
+
+    // POSSIBLE ULTIRIOR BONUS
+    $letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+    $numbers = '0123456789';
+    $entities = ':;=>?@!#$%&\'()*+,-./[\\]^_`{|}~';
 ?>
 
 <!DOCTYPE html>
@@ -35,8 +40,25 @@
                         <div class="card px-5 py-3 text-center">
                             <form action="./ciuppo.php">
                                 <div class="d-flex align-items-center justify-content-between mb-5">
-                                    <label class="form-label fw-semibold text-nowrap mb-0" for="">Lunghezza password:</label>
+                                    <label class="form-label fw-semibold text-nowrap mb-0" for="">Lunghezza password: (max 92 caratteri)</label>
                                     <input style="width: 200px;" type="number" name="numberCharacters" class="border-2 form-control">
+                                </div>
+                                <div class="d-flex justify-content-between mb-5">
+                                    <div class="fw-semibold text-nowrap">Consenti ripetizioni di uno o più caratteri:</div>
+                                    <div style="width: 200px;">
+                                        <div class="text-start form-check mb-2">
+                                            <input class="form-check-input" type="radio" name="isRepeating" value="repeat" checked>
+                                            <label class="form-check-label" for="isRepeating">
+                                                Si
+                                            </label>
+                                        </div>
+                                        <div class="text-start form-check">
+                                            <input class="form-check-input" type="radio" name="isRepeating" value="noRepeat">
+                                            <label class="form-check-label" for="isRepeating">
+                                                No
+                                            </label>
+                                        </div>
+                                    </div>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Invia</button>
                                 <button type="reset" class="btn btn-secondary">Reset</button>
