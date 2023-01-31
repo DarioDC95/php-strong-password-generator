@@ -15,7 +15,6 @@
     else {
         $string = randomPassword($_SESSION['numberCharacters'], $_SESSION['isRepeating']);
     }
-
 ?>
 
 <!DOCTYPE html>
