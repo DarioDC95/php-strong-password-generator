@@ -1,20 +1,17 @@
 <?php 
     include __DIR__. './function.php';
 
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
-
     session_start();
     $_SESSION['numberCharacters'] = $_GET['numberCharacters'];
     $_SESSION['isRepeating'] = $_GET['isRepeating'];
     dictionary();
+    $count = strlen($_SESSION['dictionaries']);
 
-    if(empty($_SESSION['numberCharacters']) || $_GET['numberCharacters'] > strlen($_SESSION['allCharacters'])) {
-        header('Location: ./index.php?error=EVITIAMO DI FARE GLI SGARGIULLI E DIAMO UN PARAMETRO VALIDO');
+    if(empty($_SESSION['numberCharacters']) || $_SESSION['numberCharacters'] > strlen($_SESSION['dictionaries'])) {
+        header("Location: ./index.php?error=EVITIAMO DI FARE GLI SGARGIULLI E DIAMO UN PARAMETRO VALIDO&info=$count");
     }
     else {
-        $string = randomPassword($_SESSION['numberCharacters'], $_SESSION['isRepeating'], $_SESSION['allCharacters']);
+        $string = randomPassword($_SESSION['numberCharacters'], $_SESSION['isRepeating'], $_SESSION['dictionaries']);
     }
 ?>
 

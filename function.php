@@ -4,13 +4,25 @@
         $_SESSION['allCharacters'] = $charactersAll;
         
         // POSSIBLE ULTIRIOR BONUS
-        $letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+        $letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $numbers = '0123456789';
         $entities = ':;=>?@!#$%&\'()*+,-./[\\]^_`{|}~';
+
+        $_SESSION['dictionaries'] = 'abcdefghijklmnopqrstuvwxyz';
+
+        if(isset($_GET['letters'])) {
+            $_SESSION['dictionaries'] .= $letters;
+        }
+        if (isset($_GET['numbers'])) {
+            $_SESSION['dictionaries'] .= $numbers;
+        }
+        if (isset($_GET['simbols'])) {
+            $_SESSION['dictionaries'] .= $entities;
+        }
     };
 
     function randomPassword($num, $rep, $characters) {
-        if(isset($_GET['numberCharacters']) && $_GET['numberCharacters'] <= strlen($_SESSION['allCharacters'])) {
+        if(isset($_GET['numberCharacters']) && $_GET['numberCharacters'] <= strlen($characters)) {
             $pass = [];
             $alphaLength = strlen($characters) - 1;
             while (sizeof($pass) < $num) {

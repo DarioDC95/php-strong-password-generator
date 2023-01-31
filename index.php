@@ -1,12 +1,5 @@
 <?php
-    include __DIR__. './function.php';
-
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
-
-    dictionary();
-    $count = strlen($_SESSION['allCharacters']);
+    
 ?>
 
 <!DOCTYPE html>
@@ -42,23 +35,39 @@
                         <div class="card px-5 py-3 text-center">
                             <form action="./ciuppo.php">
                                 <div class="d-flex align-items-center justify-content-between mb-5">
-                                    <label class="form-label fw-semibold text-nowrap mb-0" for="">Lunghezza password: (max <?php echo $count ?> characters)</label>
+                                    <label class="form-label fw-semibold text-nowrap mb-0" for="">Lunghezza password: (max <?php echo isset($_GET['info']) ? $_GET['info'] : '...' ?> characters with previews selections)</label>
                                     <input style="width: 200px;" type="number" name="numberCharacters" class="border-2 form-control">
                                 </div>
                                 <div class="d-flex justify-content-between mb-5">
                                     <div class="fw-semibold text-nowrap">Consenti ripetizioni di uno o più caratteri:</div>
-                                    <div style="width: 200px;">
-                                        <div class="text-start form-check mb-2">
-                                            <input class="form-check-input" type="radio" name="isRepeating" value="repeat" checked>
-                                            <label class="form-check-label" for="isRepeating">
-                                                Si
-                                            </label>
+                                    <div style="width: 200px;" class=" text-start">
+                                        <div class="mb-4">
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="radio" name="isRepeating" value="repeat" checked>
+                                                <label class="form-check-label" for="isRepeating">
+                                                    Si
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="isRepeating" value="noRepeat">
+                                                <label class="form-check-label" for="isRepeating">
+                                                    No
+                                                </label>
+                                            </div>
                                         </div>
-                                        <div class="text-start form-check">
-                                            <input class="form-check-input" type="radio" name="isRepeating" value="noRepeat">
-                                            <label class="form-check-label" for="isRepeating">
-                                                No
-                                            </label>
+                                        <div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" name="letters">
+                                                <label class="form-check-label" for="gridCheck1">Letters</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" name="numbers">
+                                                <label class="form-check-label" for="gridCheck1">Numbers</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" name="simbols">
+                                                <label class="form-check-label" for="gridCheck1">Simbols</label>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
