@@ -22,21 +22,19 @@
     };
 
     function randomPassword($num, $rep, $characters) {
-        if(isset($_GET['numberCharacters']) && $_GET['numberCharacters'] <= strlen($characters)) {
-            $pass = [];
-            $alphaLength = strlen($characters) - 1;
-            while (sizeof($pass) < $num) {
-                $n = rand(0, $alphaLength);
-                if($rep == 'repeat') {
+        $pass = [];
+        $alphaLength = strlen($characters) - 1;
+        while (sizeof($pass) < $num) {
+            $n = rand(0, $alphaLength);
+            if($rep == 'repeat') {
+                array_push($pass, $characters[$n]);
+            }
+            else {
+                if(!in_array($characters[$n], $pass)) {
                     array_push($pass, $characters[$n]);
                 }
-                else {
-                    if(!in_array($characters[$n], $pass)) {
-                        array_push($pass, $characters[$n]);
-                    }
-                }
             }
-            return implode($pass);
         }
+        return implode($pass);
     }
 ?>
