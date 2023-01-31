@@ -25,8 +25,8 @@
                 </div>
                 <div class="row mb-3">
                     <div class="col">
-                        <div class="mycard text-center">
-                            <input type="text" class="form-control px-5 py-3" value="<?php echo isset($_GET['error']) ? $_GET['error'] : 'Inserisci un valore valido' ?>">
+                        <div class="card">
+                            <div class="text-secondary fw-semibold px-5 py-3"><?php echo isset($_GET['error']) ? $_GET['error'] : 'Inserisci un valore valido' ?></div>
                         </div>
                     </div>
                 </div>
@@ -35,7 +35,7 @@
                         <div class="card px-5 py-3 text-center">
                             <form action="./ciuppo.php">
                                 <div class="d-flex align-items-center justify-content-between mb-5">
-                                    <label class="form-label fw-semibold text-nowrap mb-0" for="">Lunghezza password: (max <?php echo isset($_GET['info']) ? $_GET['info'] : '...' ?> characters with previews selections)</label>
+                                    <label class="form-label fw-semibold text-nowrap mb-0" for="">Lunghezza password: <?php echo isset($_GET['info']) ? "(max $_GET[info] characters with previews selections)" : '' ?></label>
                                     <input style="width: 200px;" type="number" name="numberCharacters" class="border-2 form-control">
                                 </div>
                                 <div class="d-flex justify-content-between mb-5">
