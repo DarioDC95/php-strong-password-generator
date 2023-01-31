@@ -8,12 +8,12 @@
     session_start();
     $_SESSION['numberCharacters'] = $_GET['numberCharacters'];
     $_SESSION['isRepeating'] = $_GET['isRepeating'];
+    dictionary();
 
-    if(empty($_SESSION['numberCharacters']) || $_GET['numberCharacters'] > 92) {
+    if(empty($_SESSION['numberCharacters']) || $_GET['numberCharacters'] > strlen($_SESSION['allCharacters'])) {
         header('Location: ./index.php?error=EVITIAMO DI FARE GLI SGARGIULLI E DIAMO UN PARAMETRO VALIDO');
     }
     else {
-        dictionary();
         $string = randomPassword($_SESSION['numberCharacters'], $_SESSION['isRepeating'], $_SESSION['allCharacters']);
     }
 ?>

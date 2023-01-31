@@ -10,7 +10,7 @@
     };
 
     function randomPassword($num, $rep, $characters) {
-        if(isset($_GET['numberCharacters']) && $_GET['numberCharacters'] <= 92) {
+        if(isset($_GET['numberCharacters']) && $_GET['numberCharacters'] <= strlen($_SESSION['allCharacters'])) {
             $pass = [];
             $alphaLength = strlen($characters) - 1;
             while (sizeof($pass) < $num) {

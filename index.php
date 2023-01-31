@@ -5,8 +5,8 @@
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
 
-    $charactersAll = '!#$%&\'()*+,-./0123456789:;=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~';
-    $count = strlen($charactersAll);
+    dictionary();
+    $count = strlen($_SESSION['allCharacters']);
 ?>
 
 <!DOCTYPE html>
