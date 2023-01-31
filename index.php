@@ -26,16 +26,20 @@
                 <div class="row mb-3">
                     <div class="col">
                         <div class="mycard text-center">
-                            <input type="text" class="form-control px-5 py-3" placeholder="Non hai inserito nessun valore" value="<?php echo randomPassword($_GET['numberCharacters']) ?>">
+                            <input type="text" class="form-control px-5 py-3" value="<?php echo isset($_GET['error']) ? $_GET['error'] : 'Inserisci un valore valido' ?>">
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
                         <div class="card px-5 py-3 text-center">
-                            <form class="d-flex align-items-center justify-content-between">
-                                <label class="form-label fw-semibold text-nowrap mb-0" for="">Lunghezza password:</label>
-                                <input style="width: 200px;" type="number" name="numberCharacters" class="border-2 form-control">
+                            <form action="./ciuppo.php">
+                                <div class="d-flex align-items-center justify-content-between mb-5">
+                                    <label class="form-label fw-semibold text-nowrap mb-0" for="">Lunghezza password:</label>
+                                    <input style="width: 200px;" type="number" name="numberCharacters" class="border-2 form-control">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Invia</button>
+                                <button type="reset" class="btn btn-secondary">Reset</button>
                             </form>
                         </div>
                     </div>
