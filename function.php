@@ -1,7 +1,16 @@
 <?php
-    function randomPassword($num, $rep) {
+    function dictionary() {
+        $charactersAll = '!#$%&\'()*+,-./0123456789:;=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~';
+        $_SESSION['allCharacters'] = $charactersAll;
+        
+        // POSSIBLE ULTIRIOR BONUS
+        $letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+        $numbers = '0123456789';
+        $entities = ':;=>?@!#$%&\'()*+,-./[\\]^_`{|}~';
+    };
+
+    function randomPassword($num, $rep, $characters) {
         if(isset($_GET['numberCharacters']) && $_GET['numberCharacters'] <= 92) {
-            $characters = '!#$%&\'()*+,-./0123456789:;=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~';
             $pass = [];
             $alphaLength = strlen($characters) - 1;
             while (sizeof($pass) < $num) {
@@ -9,7 +18,7 @@
                 if($rep == 'repeat') {
                     array_push($pass, $characters[$n]);
                 }
-                elseif($rep == 'noRepeat') {
+                else {
                     if(!in_array($characters[$n], $pass)) {
                         array_push($pass, $characters[$n]);
                     }

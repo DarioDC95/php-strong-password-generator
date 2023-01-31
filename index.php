@@ -1,10 +1,12 @@
 <?php
     include __DIR__. './function.php';
 
-    // POSSIBLE ULTIRIOR BONUS
-    $letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-    $numbers = '0123456789';
-    $entities = ':;=>?@!#$%&\'()*+,-./[\\]^_`{|}~';
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+
+    $charactersAll = '!#$%&\'()*+,-./0123456789:;=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~';
+    $count = strlen($charactersAll);
 ?>
 
 <!DOCTYPE html>
@@ -40,7 +42,7 @@
                         <div class="card px-5 py-3 text-center">
                             <form action="./ciuppo.php">
                                 <div class="d-flex align-items-center justify-content-between mb-5">
-                                    <label class="form-label fw-semibold text-nowrap mb-0" for="">Lunghezza password: (max 92 caratteri)</label>
+                                    <label class="form-label fw-semibold text-nowrap mb-0" for="">Lunghezza password: (max <?php echo $count ?> characters)</label>
                                     <input style="width: 200px;" type="number" name="numberCharacters" class="border-2 form-control">
                                 </div>
                                 <div class="d-flex justify-content-between mb-5">

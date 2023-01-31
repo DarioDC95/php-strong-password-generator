@@ -13,7 +13,8 @@
         header('Location: ./index.php?error=EVITIAMO DI FARE GLI SGARGIULLI E DIAMO UN PARAMETRO VALIDO');
     }
     else {
-        $string = randomPassword($_SESSION['numberCharacters'], $_SESSION['isRepeating']);
+        dictionary();
+        $string = randomPassword($_SESSION['numberCharacters'], $_SESSION['isRepeating'], $_SESSION['allCharacters']);
     }
 ?>
 
