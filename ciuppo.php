@@ -1,7 +1,7 @@
-<?php 
+<?php
+    session_start();
     include __DIR__. './function.php';
 
-    session_start();
     $_SESSION['numberCharacters'] = $_GET['numberCharacters'];
     $_SESSION['isRepeating'] = $_GET['isRepeating'];
     dictionary();
@@ -12,6 +12,7 @@
     }
     else {
         $string = randomPassword($_SESSION['numberCharacters'], $_SESSION['isRepeating'], $_SESSION['dictionaries']);
+        $_SESSION['string'] = $string;
     }
 ?>
 
@@ -31,7 +32,7 @@
                 <div class="col">
                     <div class="card text-center">
                         <h1>La tua Password Super Sicura:</h1>
-                        <h3 class="mb-0 border-2 rounded-3 p-3 bg-primary text-white"><?php echo $string ?></h3>
+                        <h3 class="mb-0 border-2 rounded-3 p-3 bg-primary text-white"><?php echo $_SESSION['string'] ?></h3>
                     </div>
                 </div>
             </div>
